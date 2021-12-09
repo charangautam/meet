@@ -1,10 +1,8 @@
 const { google } = require("googleapis");
-const OAuth2 = google.auth.OAuth2;
 const calendar = google.calendar("v3");
-/**
- * SCOPES allows you to set access levels; this is set to readonly for now because you don't have access rights to
- * update the calendar yourself. For more info, check out the SCOPES documentation at this link: https://developers.google.com/identity/protocols/oauth2/scopes
- */
+
+// SCOPES allows you to set access levels; this is set to readonly for now because you don't have access rights to
+// update the calendar yourself.
 const SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
 
 /**
@@ -20,7 +18,7 @@ const credentials = {
   token_uri: "https://oauth2.googleapis.com/token",
   auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
   redirect_uris: ["https://charangautam.github.io/meet"],
-  javascript_origins: ["https://charangautam.github.io", "http://localhost:3000"],
+  javascript_origins: ["https://charangautam.github.io"]
 };
 const { client_secret, client_id, redirect_uris, calendar_id } = credentials;
 const oAuth2Client = new google.auth.OAuth2(
@@ -37,13 +35,7 @@ const oAuth2Client = new google.auth.OAuth2(
  *
  */
 module.exports.getAuthURL = async () => {
-  /**
-   *
-   * Scopes array passed to the `scope` option. Any scopes passed must be enabled in the
-   * "OAuth consent screen" settings in your project on your Google Console. Also, any passed
-   *  scopes are the ones users will see when the consent screen is displayed to them.
-   *
-   */
+
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: "offline",
     scope: SCOPES,
