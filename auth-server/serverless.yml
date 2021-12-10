@@ -23,11 +23,11 @@ functions:
     handler: handler.getAccessToken
     events:
       - http:
-          path: api/get-access-token
+          path: api/get-access-token/{code}
           method: get
   getCalendarEvents:
     handler: handler.getCalendarEvents
     events:
       - http:
-          path: api/get-events/
+          path: api/get-events/{access-token}
           method: get
