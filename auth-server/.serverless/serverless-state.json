@@ -192,7 +192,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/auth-server/dev/1639173071534-2021-12-10T21:51:11.534Z/auth-server.zip"
+                "S3Key": "serverless/auth-server/dev/1639175206802-2021-12-10T22:26:46.802Z/auth-server.zip"
               },
               "Handler": "handler.getAuthURL",
               "Runtime": "nodejs12.x",
@@ -225,7 +225,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/auth-server/dev/1639173071534-2021-12-10T21:51:11.534Z/auth-server.zip"
+                "S3Key": "serverless/auth-server/dev/1639175206802-2021-12-10T22:26:46.802Z/auth-server.zip"
               },
               "Handler": "handler.getAccessToken",
               "Runtime": "nodejs12.x",
@@ -258,7 +258,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/auth-server/dev/1639173071534-2021-12-10T21:51:11.534Z/auth-server.zip"
+                "S3Key": "serverless/auth-server/dev/1639175206802-2021-12-10T22:26:46.802Z/auth-server.zip"
               },
               "Handler": "handler.getCalendarEvents",
               "Runtime": "nodejs12.x",
@@ -389,13 +389,13 @@
               }
             }
           },
-          "ApiGatewayResourceApiGetDasheventsAccessDashtokenVar": {
+          "ApiGatewayResourceApiGetDasheventsAccesstokenVar": {
             "Type": "AWS::ApiGateway::Resource",
             "Properties": {
               "ParentId": {
                 "Ref": "ApiGatewayResourceApiGetDashevents"
               },
-              "PathPart": "{access-token}",
+              "PathPart": "{access_token}",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -493,13 +493,13 @@
               "GetAccessTokenLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayMethodApiGetDasheventsAccessDashtokenVarGet": {
+          "ApiGatewayMethodApiGetDasheventsAccesstokenVarGet": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
               "HttpMethod": "GET",
               "RequestParameters": {},
               "ResourceId": {
-                "Ref": "ApiGatewayResourceApiGetDasheventsAccessDashtokenVar"
+                "Ref": "ApiGatewayResourceApiGetDasheventsAccesstokenVar"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -539,7 +539,7 @@
               "GetCalendarEventsLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1639173064463": {
+          "ApiGatewayDeployment1639175199272": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -550,7 +550,7 @@
             "DependsOn": [
               "ApiGatewayMethodApiGetDashauthDashurlGet",
               "ApiGatewayMethodApiGetDashaccessDashtokenCodeVarGet",
-              "ApiGatewayMethodApiGetDasheventsAccessDashtokenVarGet"
+              "ApiGatewayMethodApiGetDasheventsAccesstokenVarGet"
             ]
           },
           "GetAuthURLLambdaPermissionApiGateway": {
@@ -858,7 +858,7 @@
         "events": [
           {
             "http": {
-              "path": "api/get-events/{access-token}",
+              "path": "api/get-events/{access_token}",
               "method": "get",
               "integration": "AWS_PROXY"
             }
@@ -892,7 +892,7 @@
     "artifact": "/Users/charangautam/Desktop/meet/auth-server/.serverless/auth-server.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/auth-server/dev/1639173071534-2021-12-10T21:51:11.534Z",
+    "artifactDirectoryName": "serverless/auth-server/dev/1639175206802-2021-12-10T22:26:46.802Z",
     "artifact": "auth-server.zip"
   }
 }
