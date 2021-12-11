@@ -71,30 +71,26 @@ module.exports.getAccessToken = async (event) => {
       if (err) return reject(err);
       return resolve(token);
     })
-      .then((token) => {
-        // Respond with OAuth token 
-        return {
-          statusCode: 200,
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Credentials": true,
-          },
-          body: JSON.stringify(token)
-        };
-      })
-      .catch((err) => {
-        // Handle error
-        console.log(err);
-        return {
-          statusCode: 500,
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Credentials": true,
-          },
-          body: JSON.stringify(err)
-        };
-      })
   })
+    .then((token) => {
+      // Respond with OAuth token 
+      return {
+        statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
+        body: JSON.stringify(token)
+      };
+    })
+    .catch((err) => {
+      // Handle error
+      console.log(err);
+      return {
+        statusCode: 500,
+        body: JSON.stringify(err)
+      };
+    })
 }
 
 module.exports.getCalendarEvents = async (event) => {
@@ -130,28 +126,24 @@ module.exports.getCalendarEvents = async (event) => {
         }
       }
     )
-      .then((results) => {
-        // Respond with OAuth token 
-        return {
-          statusCode: 200,
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Credentials": true,
-          },
-          body: JSON.stringify({ events: results.data.items })
-        };
-      })
-      .catch((err) => {
-        // Handle error
-        console.log(err);
-        return {
-          statusCode: 500,
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Credentials": true,
-          },
-          body: JSON.stringify(err)
-        };
-      })
   })
+    .then((results) => {
+      // Respond with OAuth token 
+      return {
+        statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
+        body: JSON.stringify({ events: results.data.items })
+      };
+    })
+    .catch((err) => {
+      // Handle error
+      console.log(err);
+      return {
+        statusCode: 500,
+        body: JSON.stringify(err)
+      };
+    })
 }
