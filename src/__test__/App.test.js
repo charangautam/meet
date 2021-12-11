@@ -1,0 +1,23 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+
+// main component
+import App from '../App';
+// embedded component
+import EventList from '../components/EventList';
+import CitySearch from '../components/CitySearch';
+
+describe('<App /> component', () => {
+    let AppWrapper;
+    beforeAll(() => {
+        AppWrapper = shallow(<App />);
+    });
+
+    test('render CitySearch', () => {
+        expect(AppWrapper.find(CitySearch)).toHaveLength(1);
+    });
+
+    test('render list of events', () => {
+        expect(AppWrapper.find(EventList)).toHaveLength(1);
+    });
+})
