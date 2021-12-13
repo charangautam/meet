@@ -70,4 +70,14 @@ describe('<App /> integration', () => {
         expect(AppWrapper.state('events')).toEqual(allEvents);
         AppWrapper.unmount();
     });
+
+    test('get list of events to match the number of events selected', () => {
+        const AppWrapper = mount(<App />);
+        const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents)
+        NumberOfEventsWrapper.instance().handleInputChanged({
+            target: { value: 1 },
+        });
+        expect(AppWrapper.state('events')).toHaveLength(1);
+        AppWrapper = mount(<App />);
+    });
 })

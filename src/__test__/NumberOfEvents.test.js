@@ -10,6 +10,10 @@ describe('<NumberOfEvents /> component', () => {
         NumberOfEventsWrapper = shallow(<NumberOfEvents updateEvent={() => { }} />);
     });
 
+    test('render label', () => {
+        expect(NumberOfEventsWrapper.find('.label')).toHaveLength(1);
+    });
+
     test('render text input', () => {
         expect(NumberOfEventsWrapper.find('.events-number')).toHaveLength(1);
     });

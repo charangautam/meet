@@ -14,6 +14,10 @@ describe('<CitySearch /> component', () => {
         CitySearchWrapper = shallow(<CitySearch locations={locations} updateEvents={() => { }} />)
     })
 
+    test('render label', () => {
+        expect(CitySearchWrapper.find('.label')).toHaveLength(1);
+    });
+
     test('render text field', () => {
         expect(CitySearchWrapper.find('.city')).toHaveLength(1);
     });
