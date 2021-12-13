@@ -12,14 +12,21 @@ import NumberOfEvents from './components/NumberOfEvents';
 class App extends Component {
   state = {
     events: [],
-    locations: []
+    locations: [],
+    numberOfEvents: 32
   }
 
-  updateEvents = (location) => {
+  updateEvents = (location, eventCount) => {
     getEvents().then((events) => {
-      const locationEvents = (location === "all" ? events : events.filter((event) => event.location === location));
+      let locationEvents = (location === "all" ? events : events.filter((event) => event.location === location));
+      if (eventCount) {
+        locationEvents = locationEvents.slice(0, eventCount)
+      } else {
+        locationEvents = locationEvents.slice(0, this.state.numberOfEvents)
+      }
       this.setState({
-        events: locationEvents
+        events: locationEvents,
+        numberOfEvents: eventCount
       });
     });
   }
@@ -39,7 +46,7 @@ class App extends Component {
     return (
       <div className="App">
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
-        <NumberOfEvents />
+        <NumberOfEvents updateEvents={this.updateEvents} />
         <EventList events={this.state.events} />
       </div>
     )
