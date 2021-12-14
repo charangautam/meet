@@ -40,7 +40,7 @@ input[type="number"] {
   width: 250px;
 }
 
-.CitySearch {
+.citySearch {
   display: flex;
   flex-direction: column;
   flex-basis: 300px;
@@ -128,7 +128,7 @@ input[type="number"] {
   font-family: sans-serif;
 }
 
-.Alert {
+.alert {
   position: fixed;
   top: 20px;
 }

@@ -23,6 +23,7 @@ class NumberOfEvents extends Component {
                 type="number"
                 className="events-number"
                 onChange={this.handleInputChanged}
+                placeholder="Type in a number"
             />
             {this.state.error !== '' && <p>{this.state.error}</p>}
         </div>;
