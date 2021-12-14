@@ -47,6 +47,14 @@ describe('<App /> integration', () => {
         AppWrapper.unmount();
     });
 
+    test('App passes "activeLocation" state as a prop to NumberOfEvents', () => {
+        const AppWrapper = mount(<App />);
+        const AppActiveLocationState = AppWrapper.state('activeLocation');
+        expect(AppActiveLocationState).not.toEqual(undefined);
+        expect(AppWrapper.find(NumberOfEvents).props().activeLocation).toEqual(AppActiveLocationState);
+        AppWrapper.unmount();
+    });
+
     test('get list of events matching the city selected by the user', async () => {
         const AppWrapper = mount(<App />);
         const CitySearchWrapper = AppWrapper.find(CitySearch);
