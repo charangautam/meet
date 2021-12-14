@@ -9,8 +9,8 @@ class Alert extends Component {
     getStyle = () => {
         return {
             color: this.color,
-            background: "rgba(0, 0, 0, 0.5)",
-            fontSize: '14px'
+            fontSize: '14px',
+            fontWeight: '700'
         }
     }
 
@@ -26,14 +26,14 @@ class Alert extends Component {
 class InfoAlert extends Alert {
     constructor(props) {
         super(props)
-        this.color = "#7CD1B8"
+        this.color = "#22577E"
     }
 }
 
 class ErrorAlert extends Alert {
     constructor(props) {
         super(props)
-        this.color = "#FF1700"
+        this.color = "#EC255A"
     }
 }
 
