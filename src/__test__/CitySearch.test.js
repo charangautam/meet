@@ -53,7 +53,7 @@ describe('<CitySearch /> component', () => {
     test('suggestion list match the query when changed', () => {
         CitySearchWrapper.setState({ query: '', suggestions: [] });
         CitySearchWrapper.find(".city").simulate("change", {
-            target: { value: "Berlin" },
+            target: { value: "Berlin" }
         });
         const query = CitySearchWrapper.state("query");
         const filteredLocations = locations.filter((location) => {

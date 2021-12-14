@@ -25,7 +25,7 @@ Scenario 3: User can select a city from the suggested list.
 
 Scenario 1: An event element is collapsed by default.
 - Given the user is on the main page or searched for events
-- When the user see the search results of desired events
+- When the user sees the search results of desired events
 - Then the details of each event should not be showing initially
 
 Scenario 2: User can expand an event to see its details.
@@ -35,7 +35,7 @@ Scenario 2: User can expand an event to see its details.
 
 Scenario 3: User can collapse an event to hide its details.
 - Given the user has clicked on the more button and is viewing the details of a particular event
-- When the user clicks on the hide details button or outside the modal
+- When the user clicks on the hide details button
 - Then the details of that event should stop showing and go back to it's hidden view
 
 
@@ -43,12 +43,12 @@ Scenario 3: User can collapse an event to hide its details.
 
 Scenario 1: When user hasn’t specified a number, 32 is the default number.
 - Given the user want to search for and view events
-- When the user clicks search without specifying the number of events to view
+- When the user searches without specifying the number of events to view
 - Then only 32 events should be displayed to the user
 
 Scenario 2: User can change the number of events they want to see.
 - Given the user want to search for and view events
-- When the specifies the number of events they want to view then clicks search
+- When the specifies the number of events they want to view
 - Then only the number of events specified should be displayed to the user
 
 
