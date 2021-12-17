@@ -8,6 +8,7 @@ import { getEvents, extractLocations } from './api'
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
+import ScatterPlot from './components/ScatterPlot';
 
 class App extends Component {
   state = {
@@ -29,6 +30,16 @@ class App extends Component {
     });
   }
 
+  getData = () => {
+    const { locations, events } = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter((event) => event.location === location).length
+      const city = location.split(', ').shift()
+      return { city, number };
+    })
+    return data;
+  };
+
   componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
@@ -43,8 +54,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1>Meet App</h1>
+        <h4>Choose your nearest city</h4>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents activeLocation={this.state.activeLocation} updateEvents={this.updateEvents} />
+        <h4>Events in each city</h4>
+        <ScatterPlot getData={() => this.getData()} />
         <EventList events={this.state.events} />
       </div>
     )
