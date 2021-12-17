@@ -89,10 +89,9 @@ self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open('cache').then(function (cache) {
       return cache.addAll([
-        "./meet/",
-        "./meet/public/index.html",
-        "./meet/src/App.css",
-        "./meet/src/App.js"
+        "./public/index.html",
+        "./src/App.css",
+        "./src/App.js"
       ]);
     })
   );
