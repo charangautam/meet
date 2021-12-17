@@ -8,6 +8,7 @@ import { getEvents, extractLocations } from './api'
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
+import EventGenre from './components/EventGenre';
 import ScatterPlot from './components/ScatterPlot';
 
 class App extends Component {
@@ -59,7 +60,10 @@ class App extends Component {
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents activeLocation={this.state.activeLocation} updateEvents={this.updateEvents} />
         <h4>Events in each city</h4>
-        <ScatterPlot getData={() => this.getData()} />
+        <div className='data-vis-wrapper'>
+          <EventGenre events={this.state.events} />
+          <ScatterPlot getData={() => this.getData()} />
+        </div>
         <EventList events={this.state.events} />
       </div>
     )
