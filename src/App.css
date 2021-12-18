@@ -100,6 +100,10 @@ input[type="number"] {
   align-self: center;
 }
 
+.recharts {
+  padding: 1.5rem;
+}
+
 .event {
   background-color: #1B1D24;
   padding: 10px 10px 35px;
@@ -135,5 +139,17 @@ input[type="number"] {
 
   .events-number {
     width: 40%;
+  }
+
+  .recharts {
+    padding: 0px; 
+  }
+
+  .recharts-surface:first-of-type {
+    width: 300;
+  }
+
+  .eventComponent:last-of-type {
+    margin-top: 20px;
   }
 }

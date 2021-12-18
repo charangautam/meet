@@ -71,7 +71,7 @@ class App extends Component {
           </Col>
         </Row>
         <Row className="d-flex justify-content-center p-4">
-          <Col sm={12} md={6} className="d-inline p-4">
+          <Col sm={12} md={6} className="d-inline recharts">
             <EventGenre events={this.state.events} />
             <ScatterPlot getData={() => this.getData()} />
           </Col>
