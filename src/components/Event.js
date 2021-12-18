@@ -18,7 +18,7 @@ class Event extends Component {
             <div className="event mb-4 pt-2 p-4">
                 <h1 className="summary">{event.summary}</h1>
                 <p className="time text-muted">{moment(event.start.dateTime).format('lll')} - {moment(event.end.dateTime).format("h:mm a")}</p>
-                <p className="location text-muted"><i class="fas fa-map-marker-alt me-2"></i>{event.location}</p>
+                <p className="location text-muted"><i className="fas fa-map-marker-alt me-2"></i>{event.location}</p>
                 <hr></hr>
                 {
                     showDetails && <p className="description">{event.description}</p>
