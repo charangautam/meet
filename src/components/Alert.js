@@ -18,7 +18,7 @@ class Alert extends Component {
     render() {
         return (
             <div className="alert">
-                <p style={this.getStyle()}>{this.props.text}</p>
+                <h6 style={this.getStyle()}>{this.props.text}</h6>
             </div>
         )
     }
@@ -28,6 +28,13 @@ class InfoAlert extends Alert {
     constructor(props) {
         super(props)
         this.color = "#22577E"
+    }
+
+    getStyle = () => {
+        return {
+            color: this.color,
+            textAlign: "center",
+        };
     }
 }
 
@@ -40,7 +47,7 @@ class ErrorAlert extends Alert {
     getStyle = () => {
         return {
             color: this.color,
-            fontStyle: 'italic',
+            fontStyle: "italic"
         };
     }
 }

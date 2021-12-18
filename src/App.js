@@ -11,6 +11,9 @@ import NumberOfEvents from './components/NumberOfEvents';
 import EventGenre from './components/EventGenre';
 import ScatterPlot from './components/ScatterPlot';
 
+// react-bootstrap
+import { Container, Row, Col } from 'react-bootstrap';
+
 class App extends Component {
   state = {
     events: [],
@@ -54,18 +57,28 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Meet App</h1>
-        <h4>Choose your nearest city</h4>
-        <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
-        <NumberOfEvents activeLocation={this.state.activeLocation} updateEvents={this.updateEvents} />
-        <h4>Events in each city</h4>
-        <div className='data-vis-wrapper'>
-          <EventGenre events={this.state.events} />
-          <ScatterPlot getData={() => this.getData()} />
+      <Container className="App p-0" fluid>
+        <div style={{ height: "50px", backgroundColor: "#1E2127" }} className="d-flex align-items-center">
+          <h2 className="mt-o p-3" style={{ color: "#0376E3" }}>meet</h2>
         </div>
-        <EventList events={this.state.events} />
-      </div>
+        <Row className="p-3">
+          <Col md={12} className="d-flex flex-column justify-content-center align-items-center">
+            <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
+            <NumberOfEvents activeLocation={this.state.activeLocation} updateEvents={this.updateEvents} />
+          </Col>
+        </Row>
+        <Row className="d-flex justify-content-center p-4">
+          <Col sm={12} md={6} className="d-inline p-2">
+            <EventGenre events={this.state.events} />
+            <ScatterPlot getData={() => this.getData()} />
+          </Col>
+          <Col sm={12} md={6} className="d-inline p-2">
+            <EventList events={this.state.events} />
+
+          </Col>
+        </Row>
+      </Container>
+
     )
   }
 }
