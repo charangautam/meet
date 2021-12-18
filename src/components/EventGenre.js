@@ -21,21 +21,24 @@ const EventGenre = ({ events }) => {
 
 
     return (
-        <ResponsiveContainer height={400} width={400}>
-            <PieChart width={400} height={400}>
-                <Pie
-                    data={data}
-                    cx={200}
-                    cy={200}
-                    labelLine={false}
-                    outerRadius={90}
-                    fill="#8884d8"
-                    dataKey="value"
-                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                >
-                </Pie>
-            </PieChart>
-        </ResponsiveContainer>
+        <div className="eventComponent mb-3">
+            <h3 className='p-4'>Technologies</h3>
+            <ResponsiveContainer height={500}>
+                <PieChart>
+                    <Pie
+                        data={data}
+                        cx={300}
+                        cy={200}
+                        labelLine={false}
+                        outerRadius={90}
+                        fill="#8884d8"
+                        dataKey="value"
+                        label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                    >
+                    </Pie>
+                </PieChart>
+            </ResponsiveContainer>
+        </div>
     )
 }
 

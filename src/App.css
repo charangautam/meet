@@ -35,6 +35,8 @@ input[type="number"] {
   line-height: 20px;
   align-self: center;
   height: 38px;
+  background-color: #30333A;
+  color: #FFFFFF;
 }
 
 .citySearch {
@@ -81,44 +83,6 @@ input[type="number"] {
   background-color: #bcdcdb;
 }
 
-.event {
-  padding: 10px 10px 35px;
-  margin-bottom: 10px;
-  text-align: left;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  position: relative;
-}
-
-.details-btn {
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  padding: 5px 8px;
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-}
-
-.name {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.group-name {
-  text-transform: uppercase;
-  font-size: 14px;
-}
-
-.going,
-.visibility {
-  font-style: italic;
-}
-
-.description {
-  overflow-x: hidden;
-}
-
 .numberOfEvents {
   margin: 40px auto;
   text-align: center;
@@ -136,8 +100,32 @@ input[type="number"] {
   align-self: center;
 }
 
-.events-number {
+.event {
+  background-color: #1B1D24;
+  padding: 10px 10px 35px;
+  margin-bottom: 10px;
+  text-align: left;
+  border-radius: 4px;
+  position: relative;
+}
+
+.details {
+  width: 100%;
+  padding: 3px;
+  color: #BEC2CC;
   background-color: #30333A;
+  border: ridge 1px #30333A;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.description {
+  overflow-x: hidden;
+}
+
+.eventComponent {
+  background-color: #1E2127;
+  border-radius: 14px;
 }
 
 .button-wrapper {

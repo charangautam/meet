@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import moment from 'moment';
 
 class Event extends Component {
     state = {
@@ -14,11 +15,11 @@ class Event extends Component {
         const { showDetails } = this.state;
 
         return (
-            <div className="event">
+            <div className="event mb-4 pt-2 p-4">
                 <h1 className="summary">{event.summary}</h1>
-                <p className="organizer">{event.organizer.email}</p>
-                <p className="time">{event.start.dateTime} - {event.end.dateTime}</p>
-                <p className="location">{event.location}</p>
+                <p className="time text-muted">{moment(event.start.dateTime).format('lll')} - {moment(event.end.dateTime).format("h:mm a")}</p>
+                <p className="location text-muted"><i class="fas fa-map-marker-alt me-2"></i>{event.location}</p>
+                <hr></hr>
                 {
                     showDetails && <p className="description">{event.description}</p>
                 }

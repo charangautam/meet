@@ -59,7 +59,7 @@ class App extends Component {
     return (
       <Container className="App p-0" fluid>
         <div style={{ height: "50px", backgroundColor: "#1E2127" }} className="d-flex align-items-center">
-          <h2 className="mt-o p-3" style={{ color: "#0376E3" }}>meet</h2>
+          <h2 className="mt-o pt-2 ps-3" style={{ color: "#0376E3" }}>meet</h2>
         </div>
         <Row className="p-3">
           <Col md={12} className="d-flex flex-column justify-content-center align-items-center">
@@ -68,13 +68,12 @@ class App extends Component {
           </Col>
         </Row>
         <Row className="d-flex justify-content-center p-4">
-          <Col sm={12} md={6} className="d-inline p-2">
+          <Col sm={12} md={6} className="d-inline p-4">
             <EventGenre events={this.state.events} />
             <ScatterPlot getData={() => this.getData()} />
           </Col>
-          <Col sm={12} md={6} className="d-inline p-2">
+          <Col sm={12} md={6} className="d-inline p-2 eventComponent">
             <EventList events={this.state.events} />
-
           </Col>
         </Row>
       </Container>
