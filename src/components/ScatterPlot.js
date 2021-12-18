@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-    ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
+    ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
 
 class ScatterPlot extends Component {
@@ -11,12 +11,13 @@ class ScatterPlot extends Component {
                 <ResponsiveContainer height={500}>
                     <ScatterChart
                         margin={{
-                            top: 20, right: 20, bottom: 20, left: 20,
+                            top: 20, right: 40, bottom: 20, left: 0,
                         }}
                     >
-                        <CartesianGrid />
-                        <XAxis type="category" dataKey="city" name="city" />
-                        <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
+                        <CartesianGrid vertical={false} />
+                        <XAxis type="category" dataKey="city" name="City" tick={false} />
+                        <YAxis type="number" dataKey="number" name="Number of Events" allowDecimals={false} />
+                        <ZAxis range={[150, 150]} />
                         <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                         <Scatter data={this.props.getData()} fill="#8884d8" />
                     </ScatterChart>

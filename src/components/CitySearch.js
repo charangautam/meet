@@ -45,7 +45,7 @@ class CitySearch extends Component {
         return (
             <div className="citySearch">
                 <InfoAlert text={this.state.infoText} />
-                <h4 className="mb-4 text-center">Choose your nearest city</h4>
+                <h3 className="mb-4 text-center" style={{ fontWeight: "700" }}>Choose your nearest city</h3>
                 <div className="searcher">
                     <input
                         style={{ fontFamily: "FontAwesome" }}
