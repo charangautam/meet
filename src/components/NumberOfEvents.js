@@ -26,7 +26,7 @@ class NumberOfEvents extends Component {
     render() {
         return <div className="numberOfEvents">
             <div className="filterNumber">
-                <label className="me-3 text-secondary">Number of Events</label>
+                <label className="me-3 text-secondary numberLabel">Number of Events</label>
                 <input
                     type="number"
                     className="events-number"

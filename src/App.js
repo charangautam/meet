@@ -58,9 +58,12 @@ class App extends Component {
   render() {
     return (
       <Container className="App p-0" fluid>
-        <div style={{ height: "50px", backgroundColor: "#1E2127" }} className="d-flex align-items-center">
-          <h2 className="mt-o pt-2 ps-3" style={{ color: "#0376E3" }}>meet</h2>
-        </div>
+        <Row>
+          <Col sm={12} style={{ height: "50px", backgroundColor: "#1E2127" }} className="d-flex align-items-center">
+            <h2 className="mt-o pt-2 ps-3" style={{ color: "#0376E3" }}>meet</h2>
+          </Col>
+        </Row>
+
         <Row className="p-3">
           <Col md={12} className="d-flex flex-column justify-content-center align-items-center">
             <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
