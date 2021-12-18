@@ -132,6 +132,10 @@ input[type="number"] {
   border-radius: 14px;
 }
 
+.modal-content {
+  background-color: #1E2127;
+}
+
 @media screen and (max-width: 600px) {
   .numberLabel {
     font-size: 14px;
@@ -151,5 +155,9 @@ input[type="number"] {
 
   .eventComponent:last-of-type {
     margin-top: 20px;
+  }
+
+  .modal-content {
+    width: 340px;
   }
 }

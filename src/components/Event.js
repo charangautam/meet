@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import moment from 'moment';
 
+// react bootstrap
+import { Modal, Button, CloseButton } from 'react-bootstrap';
+
 class Event extends Component {
     state = {
         showDetails: false
@@ -20,10 +23,23 @@ class Event extends Component {
                 <p className="time text-muted">{moment(event.start.dateTime).format('lll')} - {moment(event.end.dateTime).format("h:mm a")}</p>
                 <p className="location text-muted"><i className="fas fa-map-marker-alt me-2"></i>{event.location}</p>
                 <hr></hr>
-                {
-                    showDetails && <p className="description">{event.description}</p>
-                }
-                <button className="details" onClick={this.handleClick}>{showDetails ? 'Hide Details' : 'Show Details'}</button>
+                <Button className="details" size="lg" onClick={this.handleClick}>{showDetails ? 'Hide Details' : 'Show Details'}</Button>
+                <Modal show={showDetails} onHide={this.handleClick} centered style={{ color: "#FFFFFF" }}>
+                    <Modal.Header className="d-flex align-items-start border-0" >
+                        <div>
+                            <Modal.Title>{event.summary}</Modal.Title>
+                            <p className="time text-muted">{moment(event.start.dateTime).format('lll')} - {moment(event.end.dateTime).format("h:mm a")}</p>
+                            <p className="location text-muted"><i className="fas fa-map-marker-alt me-2"></i>{event.location}</p>
+                        </div>
+                        <CloseButton variant="white" onClick={this.handleClick} style={{ borderRadius: "50%" }} />
+                    </Modal.Header>
+                    <Modal.Body >{event.description}</Modal.Body>
+                    <Modal.Footer className="border-0">
+                        <Button variant="secondary" onClick={this.handleClick}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         )
     }
