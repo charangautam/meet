@@ -5,7 +5,7 @@ import { ErrorAlert } from './Alert';
 
 class NumberOfEvents extends Component {
     state = {
-        errorAlert: ''
+        errorAlert: '',
     }
 
     handleInputChanged = (event) => {
@@ -31,9 +31,10 @@ class NumberOfEvents extends Component {
                     type="number"
                     className="events-number"
                     onChange={this.handleInputChanged}
+                    onFocus={() => this.setState({ errorAlert: '' })}
                 />
             </div>
-            <ErrorAlert text={this.state.errorAlert} />
+            <ErrorAlert className="errAlert" text={this.state.errorAlert} />
         </div>;
     }
 }
