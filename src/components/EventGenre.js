@@ -19,7 +19,7 @@ const EventGenre = ({ events }) => {
         setData(() => getData());
     }, [events])
 
-    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF', 'FF7272'];
+    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF', '#FF7272'];
 
     return (
         <div className="eventComponent mb-3 pb-4">
