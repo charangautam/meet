@@ -70,12 +70,12 @@ export const getEvents = async () => {
     const token = await getAccessToken();
 
     if (token) {
-        // removeQuery();
+        removeQuery();
         const url = `https://znwct5krqf.execute-api.ca-central-1.amazonaws.com/dev/api/get-events/${token}`;
         const result = await axios.get(url);
         if (result.data) {
             let locations = extractLocations(result.data.events);
-            localStorage.setItem("lastEvents", JSON.stringify(result.data.events));
+            localStorage.setItem("lastEvents", JSON.stringify(result.data));
             localStorage.setItem("locations", JSON.stringify(locations));
         }
         NProgress.done();
@@ -83,17 +83,17 @@ export const getEvents = async () => {
     }
 };
 
-// const removeQuery = () => {
-//     if (window.history.pushState && window.location.pathname) {
-//         var newurl =
-//             window.location.protocol +
-//             "//" +
-//             window.location.host +
-//             window.location.pathname;
-//         window.history.pushState("", "", newurl);
-//     } else {
-//         newurl = window.location.protocol + "//" + window.location.host;
-//         window.history.pushState("", "", newurl);
-//     }
-// };
+const removeQuery = () => {
+    if (window.history.pushState && window.location.pathname) {
+        var newurl =
+            window.location.protocol +
+            "//" +
+            window.location.host +
+            window.location.pathname;
+        window.history.pushState("", "", newurl);
+    } else {
+        newurl = window.location.protocol + "//" + window.location.host;
+        window.history.pushState("", "", newurl);
+    }
+};
 
