@@ -70,6 +70,7 @@ class App extends Component {
             <NumberOfEvents activeLocation={this.state.activeLocation} updateEvents={this.updateEvents} />
           </Col>
         </Row>
+
         <Row className="d-flex justify-content-center p-4">
           <Col sm={12} md={6} className="d-inline recharts">
             <EventGenre events={this.state.events} />
