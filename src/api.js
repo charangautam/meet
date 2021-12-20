@@ -13,7 +13,7 @@ export const checkToken = async (accessToken) => {
         `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
     )
         .then((res) => res.json())
-        .catch((error) => error.json());
+        .catch((error) => error);
 
     return result;
 };
@@ -61,10 +61,10 @@ export const getEvents = async () => {
     }
 
     if (!navigator.onLine) {
-        const { events } = await localStorage.getItem("lastEvents");
+        const data = localStorage.getItem("lastEvents");
         NProgress.done();
 
-        return { events: JSON.parse(events), locations: extractLocations(events) };
+        return data ? JSON.parse(data).events : [];;
     }
 
     const token = await getAccessToken();
