@@ -6,7 +6,7 @@ const EventGenre = ({ events }) => {
 
     useEffect(() => {
         const getData = () => {
-            const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS'];
+            const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS', 'Angular'];
             const data = genres.map((genre) => {
                 const value = events.filter((event) => {
                     let summary = event.summary.split(' ')
@@ -19,7 +19,7 @@ const EventGenre = ({ events }) => {
         setData(() => getData());
     }, [events])
 
-    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF'];
+    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF', 'FF7272'];
 
     return (
         <div className="eventComponent mb-3 pb-4">
