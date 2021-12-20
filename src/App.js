@@ -21,7 +21,7 @@ class App extends Component {
     locations: [],
     numberOfEvents: 32,
     activeLocation: 'all',
-    showWelcomeScreen: undefined
+    showWelcomeScreen: false
   }
 
   updateEvents = (location, eventCount = this.state.eventCount) => {
@@ -67,7 +67,6 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.showWelcomeScreen === undefined) return <div className="App" />
     return (
       <Container className="App p-0" fluid>
         <Row>
@@ -95,7 +94,6 @@ class App extends Component {
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
           getAccessToken={() => { getAccessToken() }} />
       </Container>
-
     )
   }
 }
