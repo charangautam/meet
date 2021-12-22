@@ -27,7 +27,7 @@ defineFeature(feature, test => {
         });
 
         then('the details of each event should not be showing initially', () => {
-            expect(EventWrapper.find('.event .description')).toHaveLength(0)
+            expect(EventWrapper.find(".details").text()).toBe("Show Details");
         });
     });
 
@@ -42,7 +42,7 @@ defineFeature(feature, test => {
         });
 
         then('the details of that event should be open up', () => {
-            expect(EventWrapper.find('.event .description')).toHaveLength(1)
+            expect(EventWrapper.find(".details").text()).toBe("Hide Details");
         });
     });
 
@@ -56,7 +56,7 @@ defineFeature(feature, test => {
         });
 
         then('the details of that event should stop showing and go back to it\'s hidden view', () => {
-            expect(EventWrapper.find('.event .description')).toHaveLength(0)
+            expect(EventWrapper.find(".details").text()).toBe("Show Details");
         });
     });
 })

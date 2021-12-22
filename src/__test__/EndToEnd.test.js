@@ -1,4 +1,3 @@
-
 import puppeteer from 'puppeteer';
 
 describe('filter events by city', () => {

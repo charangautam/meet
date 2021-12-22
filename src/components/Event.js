@@ -27,13 +27,13 @@ class Event extends Component {
                 <Modal show={showDetails} onHide={this.handleClick} centered style={{ color: "#FFFFFF" }}>
                     <Modal.Header className="d-flex align-items-start border-0" >
                         <div>
-                            <Modal.Title>{event.summary}</Modal.Title>
+                            <Modal.Title className="summary">{event.summary}</Modal.Title>
                             <p className="time text-muted">{moment(event.start.dateTime).format('lll')} - {moment(event.end.dateTime).format("h:mm a")}</p>
                             <p className="location text-muted"><i className="fas fa-map-marker-alt me-2"></i>{event.location}</p>
                         </div>
                         <CloseButton variant="white" onClick={this.handleClick} style={{ borderRadius: "50%" }} />
                     </Modal.Header>
-                    <Modal.Body >{event.description}</Modal.Body>
+                    <Modal.Body className="description">{event.description}</Modal.Body>
                     <Modal.Footer className="border-0">
                         <Button variant="secondary" onClick={this.handleClick}>
                             Close

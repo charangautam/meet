@@ -25,7 +25,7 @@ defineFeature(feature, test => {
 
         then('the user should see a list of all upcoming events', async () => {
             await AppWrapper.update();
-            expect(AppWrapper.state('events')).toHaveLength(mockData.length);
+            expect(AppWrapper.find('.event-list li')).toHaveLength(mockData.length);
         });
     });
 
