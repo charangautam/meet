@@ -847,7 +847,6 @@ let mockData = [
         },
         "eventType": "default"
     },
-
     {
         "kind": "calendar#event",
         "etag": "\"3181161784712000\"",
