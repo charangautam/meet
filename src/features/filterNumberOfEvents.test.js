@@ -10,7 +10,7 @@ import App from '../App';
 const feature = loadFeature('./src/features/filterNumberOfEvents.feature');
 
 defineFeature(feature, test => {
-    test('When user hasn’t specified a number, 32 (4 when using mockData) is the default number.', ({ given, when, then }) => {
+    test('When user hasn’t specified a number, all events should be displayed.', ({ given, when, then }) => {
         given('the user want to search for and view events', () => {
 
         });
@@ -20,9 +20,10 @@ defineFeature(feature, test => {
             AppWrapper = mount(<App />)
         });
 
-        then(/^only (\d+) events should be displayed to the user$/, async (arg0) => {
+
+        then('all events should be displayed to the user', async () => {
             await AppWrapper.update()
-            expect(AppWrapper.find('.event-list li')).toHaveLength(4)
+            expect(AppWrapper.find('.event-list li')).toHaveLength(250)
         });
     });
 
