@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { mockData } from './mock-data';
-import NProgress from 'nprogress';
+// import NProgress from 'nprogress';
 
 export const extractLocations = (events) => {
     let extractLocations = events.map((event) => event.location);
@@ -53,47 +53,48 @@ export const getAccessToken = async () => {
 }
 
 export const getEvents = async () => {
-    NProgress.start();
+    return mockData;
+    // NProgress.start();
 
-    if (window.location.href.startsWith("http://localhost")) {
-        NProgress.done();
-        return mockData;
-    }
+    // if (window.location.href.startsWith("http://localhost")) {
+    //     NProgress.done();
+    //     return mockData;
+    // }
 
-    if (!navigator.onLine) {
-        const data = localStorage.getItem("lastEvents");
-        NProgress.done();
+    // if (!navigator.onLine) {
+    //     const data = localStorage.getItem("lastEvents");
+    //     NProgress.done();
 
-        return data ? JSON.parse(data).events : [];;
-    }
+    //     return data ? JSON.parse(data).events : [];;
+    // }
 
-    const token = await getAccessToken();
+    // const token = await getAccessToken();
 
-    if (token) {
-        removeQuery();
-        const url = `https://znwct5krqf.execute-api.ca-central-1.amazonaws.com/dev/api/get-events/${token}`;
-        const result = await axios.get(url);
-        if (result.data) {
-            let locations = extractLocations(result.data.events);
-            localStorage.setItem("lastEvents", JSON.stringify(result.data));
-            localStorage.setItem("locations", JSON.stringify(locations));
-        }
-        NProgress.done();
-        return result.data.events;
-    }
+    // if (token) {
+    //     removeQuery();
+    //     const url = `https://znwct5krqf.execute-api.ca-central-1.amazonaws.com/dev/api/get-events/${token}`;
+    //     const result = await axios.get(url);
+    //     if (result.data) {
+    //         let locations = extractLocations(result.data.events);
+    //         localStorage.setItem("lastEvents", JSON.stringify(result.data));
+    //         localStorage.setItem("locations", JSON.stringify(locations));
+    //     }
+    //     NProgress.done();
+    //     return result.data.events;
+    // }
 };
 
-const removeQuery = () => {
-    if (window.history.pushState && window.location.pathname) {
-        var newurl =
-            window.location.protocol +
-            "//" +
-            window.location.host +
-            window.location.pathname;
-        window.history.pushState("", "", newurl);
-    } else {
-        newurl = window.location.protocol + "//" + window.location.host;
-        window.history.pushState("", "", newurl);
-    }
-};
+// const removeQuery = () => {
+//     if (window.history.pushState && window.location.pathname) {
+//         var newurl =
+//             window.location.protocol +
+//             "//" +
+//             window.location.host +
+//             window.location.pathname;
+//         window.history.pushState("", "", newurl);
+//     } else {
+//         newurl = window.location.protocol + "//" + window.location.host;
+//         window.history.pushState("", "", newurl);
+//     }
+// };
 

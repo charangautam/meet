@@ -1,10 +1,10 @@
 import React from 'react';
 import { loadFeature, defineFeature } from 'jest-cucumber';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 
 // components 
 import App from '../App';
-import NumberOfEvents from '../components/NumberOfEvents';
+// import NumberOfEvents from '../components/NumberOfEvents';
 
 
 const feature = loadFeature('./src/features/filterNumberOfEvents.feature');

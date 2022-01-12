@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import './App.css';
 import './nprogress.css';
-import { getEvents, extractLocations, checkToken, getAccessToken } from './api'
+import { getEvents, extractLocations /* checkToken, getAccessToken /** */ } from './api'
 
 // embedded components
 import CitySearch from './components/CitySearch';
@@ -10,7 +10,7 @@ import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
 import EventGenre from './components/EventGenre';
 import ScatterPlot from './components/ScatterPlot';
-import WelcomeScreen from './WelcomeScreen';
+// import WelcomeScreen from './WelcomeScreen';
 
 // react-bootstrap
 import { Container, Row, Col } from 'react-bootstrap';
@@ -48,18 +48,23 @@ class App extends Component {
 
   async componentDidMount() {
     this.mounted = true;
-    const accessToken = localStorage.getItem('access_token');
-    const isTokenValid = (await checkToken(accessToken)).error ? false : true
-    const searchParams = new URLSearchParams(window.location.search);
-    const code = searchParams.get("code");
-    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-    if ((code || isTokenValid) && this.mounted) {
-      getEvents().then((events) => {
-        if (this.mounted) {
-          this.setState({ events, locations: extractLocations(events) });
-        }
-      });
-    }
+    getEvents().then((events) => {
+      if (this.mounted) {
+        this.setState({ events, locations: extractLocations(events) });
+      }
+    });
+    // const accessToken = localStorage.getItem('access_token');
+    // const isTokenValid = (await checkToken(accessToken)).error ? false : true
+    // const searchParams = new URLSearchParams(window.location.search);
+    // const code = searchParams.get("code");
+    // this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+    // if ((code || isTokenValid) && this.mounted) {
+    //   getEvents().then((events) => {
+    //     if (this.mounted) {
+    //       this.setState({ events, locations: extractLocations(events) });
+    //     }
+    //   });
+    // }
   }
 
   componentWillUnmount() {
@@ -91,8 +96,8 @@ class App extends Component {
             <EventList events={this.state.events} />
           </Col>
         </Row>
-        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
-          getAccessToken={() => { getAccessToken() }} />
+        {/* <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={() => { getAccessToken() }} /> */}
       </Container>
     )
   }
